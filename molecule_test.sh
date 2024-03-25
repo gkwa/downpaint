@@ -4,15 +4,15 @@ set -e
 set -x
 set -u
 
-dir=$(mktemp -d /tmp/test.XXXXX)/faris
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+dir=$(mktemp -d $script_dir/test.XXXXX)/faris
 mkdir -p $dir
 cd $dir
 
-rm -rf /tmp/o1
+rm -rf stat
 
 
-echo $dir >/tmp/o1
-
+echo $dir >stat
 
 rye init
 
